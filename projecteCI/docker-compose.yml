@@ -1,0 +1,60 @@
+services:
+
+  tomcat1:
+    image: sakila-app:${VERSION}
+    container_name: tomcat1
+    environment:
+      - CATALINA_OPTS=-DjvmRoute=tomcat1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    depends_on:
+      - mysql-sakila
+    networks:
+      - my-network
+
+  tomcat2:
+    image: sakila-app:${VERSION}
+    container_name: tomcat2
+    environment:
+      - CATALINA_OPTS=-DjvmRoute=tomcat2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    depends_on:
+      - mysql-sakila
+    networks:
+      - my-network
+    
+  mysql-sakila:
+    build: ./mysql-sakila
+    container_name: mysql-sakila
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - my-network
+
+  apache:
+    build: ./imatge-apache
+    container_name: apache
+    ports:
+      - "80:80"
+    depends_on:
+      tomcat1:
+        condition: service_healthy
+      tomcat2:
+        condition: service_healthy
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
+    
+volumes:
+  mysql_data:
