@@ -39,7 +39,7 @@ class JdbcRepositoryTest {
     private JdbcRepository jdbcRepository;
 
     @BeforeEach
-    void setUp() throws SQLException {
+    void setUp() {
         jdbcRepository = new JdbcRepository(dataSource);
     }
 
