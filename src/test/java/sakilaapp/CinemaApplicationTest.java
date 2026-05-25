@@ -1,4 +1,4 @@
-package sakilaApp;
+package sakilaapp;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;

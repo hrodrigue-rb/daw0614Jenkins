@@ -1,4 +1,4 @@
-package sakilaApp.services;
+package sakilaapp.services;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -13,10 +13,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import sakilaApp.model.dao.Actor;
-import sakilaApp.model.dao.Pais;
-import sakilaApp.model.dao.Pelicula;
-import sakilaApp.repository.JdbcRepository;
+import sakilaapp.model.dao.Actor;
+import sakilaapp.model.dao.Pais;
+import sakilaapp.model.dao.Pelicula;
+import sakilaapp.repository.JdbcRepository;
 
 @ExtendWith(MockitoExtension.class)
 class CinemaServiceTest {

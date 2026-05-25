@@ -1,4 +1,4 @@
-package sakilaApp.repository;
+package sakilaapp.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -20,9 +20,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import sakilaApp.model.dao.Actor;
-import sakilaApp.model.dao.Pais;
-import sakilaApp.model.dao.Pelicula;
+import sakilaapp.model.dao.Actor;
+import sakilaapp.model.dao.Pais;
+import sakilaapp.model.dao.Pelicula;
 
 @ExtendWith(MockitoExtension.class)
 class JdbcRepositoryTest {

@@ -1,4 +1,4 @@
-package sakilaApp.controller;
+package sakilaapp.controller;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -13,10 +13,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import sakilaApp.model.dao.Actor;
-import sakilaApp.model.dao.Pais;
-import sakilaApp.model.dao.Pelicula;
-import sakilaApp.services.CinemaService;
+import sakilaapp.model.dao.Actor;
+import sakilaapp.model.dao.Pais;
+import sakilaapp.model.dao.Pelicula;
+import sakilaapp.services.CinemaService;
 
 @WebMvcTest(CinemaController.class) // Només carrega el context de la capa web
 class CinemaControllerTest {
