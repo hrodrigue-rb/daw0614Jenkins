@@ -19,12 +19,16 @@ public class DataSourceConfig {
     @Profile("prod")
     @Lazy
     @ConditionalOnProperty(name = "app.datasource.jndi-name")
-    public DataSource jndiDataSource(@Value("${app.datasource.jndi-name}") String jndiName)
+    public DataSource jndiDataSource(
+            @Value("${app.datasource.jndi-name}") String jndiName)
             throws NamingException {
 
-        try (InitialContext ctx = new InitialContext()) {
-            // Evita el cast inseguro usando lookup con clase
-            return ctx.lookup(jndiName, DataSource.class);
+        InitialContext ctx = new InitialContext();
+
+        try {
+            return (DataSource) ctx.lookup(jndiName);
+        } finally {
+            ctx.close();
         }
     }
 }
